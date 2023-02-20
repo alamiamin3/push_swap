@@ -1,0 +1,67 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_b_op.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/20 19:08:53 by aalami            #+#    #+#             */
+/*   Updated: 2023/02/20 19:09:32 by aalami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	sb(t_stack *stack)
+{
+	int	tmp;
+
+	if (empty_stack(stack) || !stack->top->next)
+			return ;
+	else
+	{
+		tmp = stack->top->data;	
+		stack->top->data = stack->top->next->data;
+		stack->top->next->data = tmp;
+	}
+}
+
+void	rb(t_stack *stack)
+{
+	t_node	*tmp;
+	t_node	*node;
+	int	tmp_data;
+
+	if (empty_stack(stack) || !stack->top->next)
+		return ;
+	tmp_data = pop(stack);
+	node = ft_new_node(tmp_data);
+	tmp = stack->top;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = node;
+}
+
+void	rrb(t_stack *stack)
+{
+	t_node	*tmp;
+	int	tmp_data;
+
+	if (empty_stack(stack) || !stack->top->next)
+		return ;
+	tmp = stack->top;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	tmp_data = tmp->next->data;
+	tmp->next = NULL;
+	free(tmp->next);
+	push(stack, tmp_data);
+}
+
+void	pb(t_stack *stack_a, t_stack *stack_b)
+{
+	if (empty_stack(stack_a))
+		return ;
+	push(stack_b, stack_a->top->data);
+	pop(stack_a);
+}
