@@ -6,7 +6,8 @@ SRC = 	stack.c \
 		push_swap.c \
 		stack_a_op.c \
 		stack_b_op.c \
-		push_swap_utils.c
+		push_swap_utils.c \
+		push_swap_utils_2.c
 OBJ = $(SRC:.c=.o)
 LIB_DIR = lib/Libft
 LIBFT = libft.a
