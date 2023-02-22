@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:01:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/20 22:10:55 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/22 18:56:43 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,11 @@ void	rb(t_stack *stack);
 void	rrb(t_stack *stack);
 int	get_args_num(char **arr);
 int	is_sorted(char **arr);
-void	ft_sort(int	args, t_stack *a);
+void	ft_sort(int	args, t_stack *a, t_stack *b);
 int	get_max(t_stack *s);
-int	get_max_index(t_stack *s, int max);
+int	get_index(t_stack *s, int data);
 void	small_sort(t_stack *a);
+int	stack_size(t_stack *stack);
+void	sort_numbers(t_stack *a, t_stack *b);
+int	get_min(t_stack *s);
 #endif
