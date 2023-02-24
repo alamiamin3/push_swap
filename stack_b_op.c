@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:08:53 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/22 18:44:56 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/24 22:50:14 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	sb(t_stack *stack)
 		stack->top->data = stack->top->next->data;
 		stack->top->next->data = tmp;
 	}
+	index_update(stack);
 	write(1, "sb\n", 3);
 }
 
@@ -41,6 +42,7 @@ void	rb(t_stack *stack)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = node;
+	index_update(stack);
 	write(1, "rb\n", 3);
 }
 
@@ -58,6 +60,7 @@ void	rrb(t_stack *stack)
 	tmp->next = NULL;
 	free(tmp->next);
 	push(stack, tmp_data);
+	index_update(stack);
 	write(1, "rrb\n", 4);
 }
 
@@ -67,5 +70,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	push(stack_b, stack_a->top->data);
 	pop(stack_a);
-	write(1, "pb\n", 3);
+	index_update(stack_b);
+	index_update(stack_a);
+	// write(1, "pb\n", 3);
 }

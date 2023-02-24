@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:01:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/22 18:56:43 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/24 17:12:43 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_node
 {
 	int	data;
+	int	index;
 	struct s_node	*next;
 }	t_node;
 
@@ -59,4 +60,13 @@ void	small_sort(t_stack *a);
 int	stack_size(t_stack *stack);
 void	sort_numbers(t_stack *a, t_stack *b);
 int	get_min(t_stack *s);
+int	*find_lenght(t_stack *a, int n);
+int	*init_lis(int n);
+int	*get_lis(t_stack *a, int n);
+int	get_lis_max_index(int *lis, int n, int num);
+int	get_lis_max(int *lis, int n);
+t_node	*get_node_by_index(t_stack *a, int index);
+int	get_lis_index(int *lis, int num, int max_index);
+void	index_update(t_stack *s);
+void	sort_large_numbers(t_stack *a, t_stack *b, int *lis, int max);
 #endif

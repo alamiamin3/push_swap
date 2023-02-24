@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:02:39 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/20 22:07:05 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/24 22:50:19 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	sa(t_stack *stack)
 		stack->top->data = stack->top->next->data;
 		stack->top->next->data = tmp;
 	}
+	index_update(stack);
 	write(1,"sa\n",3);
 }
 
@@ -41,7 +42,7 @@ void	ra(t_stack *stack)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = node;
-	write(1,"ra\n",3);
+	// write(1,"ra\n",3);
 }
 
 void	rra(t_stack *stack)
@@ -67,5 +68,8 @@ void	pa(t_stack *stack_b, t_stack *stack_a)
 		return ;
 	push(stack_a, stack_b->top->data);
 	pop(stack_b);
+	index_update(stack_a);
+	index_update(stack_b);
 	write(1,"pa\n",3);
 }
+// 152 158 255  560 654 794 836  

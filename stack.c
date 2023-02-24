@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:28:49 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/20 19:13:54 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/24 15:21:16 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_stack   *fill_stack(char **arr)
 	while (i >= 0)
 	{
 		push(stack, ft_atoi(arr[i]));
+		stack->top->index = i;
 		i--;
 	}
 	return (stack);
@@ -78,4 +79,21 @@ int	pop(t_stack *stack)
     stack->top = stack->top->next;
     free(temp);
     return data;
+}
+
+void	index_update(t_stack *s)
+{
+	t_node	*tmp;
+	int	i;
+
+	if (empty_stack(s))
+		return ;
+	tmp = s->top;
+	i = 0;
+	while (tmp)
+	{
+		tmp->index = i;
+		i++;
+		tmp = tmp->next;
+	}
 }

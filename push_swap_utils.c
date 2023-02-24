@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 20:27:44 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/22 21:59:37 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/24 22:52:10 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,58 @@ int	get_args_num(char **arr)
 
 	i = 0;
 	while (arr[i])
-	{printf(" node : %d    %s\n",i, arr[i]);
-		i++;}
+		i++;
 	return (i);
 }
 
 void	ft_sort(int	args, t_stack *a, t_stack *b)
 {
-	printf("%d\n", args);
-	return ;
+	int	*lis;
+	int	*sub;
+	t_node	*tmp;
+
+	int	lis_size;
 	if (args <= 3)
 		small_sort(a);
-	else
+	else if (args <= 10)
 		sort_numbers(a, b);
+	else
+	{
+		lis = get_lis(a, args);
+		sub = find_lenght(a, args);
+		lis_size = get_lis_max(sub, args);
+			printf("%d\n",lis_size);
+		sort_large_numbers(a, b, lis, lis_size);
+		tmp = a->top;
+			while (tmp)
+		{
+			printf("%d, ",tmp->data);
+			tmp=tmp->next;
+		}
+	}
+		
+}
+
+void	sort_large_numbers(t_stack *a, t_stack *b, int *lis, int max)
+{
+	t_node	*tmp;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = stack_size(a);
+	while (j)
+	{
+		tmp = a->top;
+		if (tmp->data == lis[i] && i < max)
+		{
+			ra(a);
+			i++;
+		}
+		else
+			pb(a, b);
+		j--;
+	}
 }
 
 void	sort_numbers(t_stack *a, t_stack *b)
