@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:08:53 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/24 22:50:14 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/25 12:30:14 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 	pop(stack_a);
 	index_update(stack_b);
 	index_update(stack_a);
-	// write(1, "pb\n", 3);
+	write(1, "pb\n", 3);
 }

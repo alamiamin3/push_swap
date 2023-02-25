@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:02:39 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/24 22:50:19 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/25 12:30:03 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ra(t_stack *stack)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = node;
-	// write(1,"ra\n",3);
+	write(1,"ra\n",3);
 }
 
 void	rra(t_stack *stack)

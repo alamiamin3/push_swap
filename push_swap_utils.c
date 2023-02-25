@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 20:27:44 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/24 22:52:10 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/25 19:14:17 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ void	ft_sort(int	args, t_stack *a, t_stack *b)
 		lis = get_lis(a, args);
 		sub = find_lenght(a, args);
 		lis_size = get_lis_max(sub, args);
-			printf("%d\n",lis_size);
 		sort_large_numbers(a, b, lis, lis_size);
 		tmp = a->top;
 			while (tmp)
 		{
-			printf("%d, ",tmp->data);
+			printf("%d ",tmp->data);
 			tmp=tmp->next;
 		}
+			printf("\n  size of lis :%d\n",lis_size);
 	}
 		
 }
@@ -55,6 +55,7 @@ void	sort_large_numbers(t_stack *a, t_stack *b, int *lis, int max)
 	t_node	*tmp;
 	int	i;
 	int	j;
+	t_node	*max_a;
 
 	i = 0;
 	j = stack_size(a);
@@ -70,6 +71,55 @@ void	sort_large_numbers(t_stack *a, t_stack *b, int *lis, int max)
 			pb(a, b);
 		j--;
 	}
+	tmp = b->top;
+	while (tmp)
+	{
+		max_a = get_higher_num(a,tmp->data);
+		printf(" b[%d] = %d < a[%d] = %d\n",tmp->index, tmp->data, max_a->index, max_a->data);
+		tmp = tmp->next;
+	}
+}
+t_node	*get_smaller(t_stack *s)
+{
+	t_node	*tmp;
+	t_node	*min;
+	
+	tmp = s->top;
+	min = s->top;
+	while (tmp)
+	{
+		if (tmp->data < min->data)
+			min = tmp;
+		tmp = tmp->next;
+	}
+	return (min);
+}
+t_node	*get_higher_num(t_stack *a,int n)
+{
+	t_node	*tmp;
+	t_node	*max;
+	// int	i;
+	
+	// i = 0;
+	tmp = a->top;
+	max = NULL;
+	while (tmp)
+	{
+		if (tmp->data > n && !max)
+		{
+			max = tmp;
+			// i++;
+		}
+		if (max && max->data > tmp->data && tmp->data > n)
+		{
+			max = tmp;
+			// i++;
+		}
+		tmp = tmp->next;
+	}
+	if (!max)
+		max = get_smaller(a);
+	return (max);
 }
 
 void	sort_numbers(t_stack *a, t_stack *b)
