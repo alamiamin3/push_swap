@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:28:49 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/24 15:21:16 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/27 16:30:33 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,55 @@ void	index_update(t_stack *s)
 		i++;
 		tmp = tmp->next;
 	}
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	t_node	*tmp;
+	t_node	*node;
+	int	tmp_data;
+
+	if (empty_stack(a) || !a->top->next || empty_stack(b) || !b->top->next)
+		return ;
+	tmp_data = pop(a);
+	node = ft_new_node(tmp_data);
+	tmp = a->top;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = node;
+	index_update(a);
+	tmp_data = pop(b);
+	node = ft_new_node(tmp_data);
+	tmp = b->top;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = node;
+	index_update(b);
+	write(1,"rr\n",3);
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	t_node	*tmp;
+	int	tmp_data;
+
+	if (empty_stack(a) || !a->top->next || empty_stack(b) || !b->top->next)
+		return ;
+	tmp = a->top;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	tmp_data = tmp->next->data;
+	tmp->next = NULL;
+	free(tmp->next);
+	push(a, tmp_data);
+	index_update(a);
+		tmp = b->top;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	tmp_data = tmp->next->data;
+	tmp->next = NULL;
+	free(tmp->next);
+	push(b, tmp_data);
+	index_update(b);
+	write(1, "rrr\n", 4);
 }

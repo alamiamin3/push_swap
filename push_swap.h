@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:01:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/25 19:03:54 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/27 19:12:52 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,12 @@ void	index_update(t_stack *s);
 void	sort_large_numbers(t_stack *a, t_stack *b, int *lis, int max);
 t_node	*get_higher_num(t_stack *a,int n);
 t_node	*get_smaller(t_stack *s);
+int	get_moves_to_top(t_stack *s,t_node *n);
+void	rr(t_stack *a, t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
+int	get_moves_to_a(t_stack *a, t_stack *b, t_node *n_b, t_node *n_a);
+t_node	*best_move(t_stack *b, t_stack *a);
+void	move_to_a(t_stack *a, t_stack *b);
+void	move_to_top_a(t_stack *a, t_node *n);
+void	move_to_top_b(t_stack *b, t_node *n);
 #endif
