@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:01:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/27 19:12:52 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/28 22:21:33 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 typedef struct s_node
 {
-	int	data;
-	int	index;
+	int				data;
+	int				index;
 	struct s_node	*next;
 }	t_node;
 
@@ -30,13 +30,12 @@ typedef struct s_stack
 	t_node	*top;
 }	t_stack;
 
-
 int		check_nbr(char *str);
 int		check_dup(char **arr);
 int		is_int(char *str);
 int		free_space(char **arr);
-char	**check_args(char *buff, int argc, char **argv);
-int     check_empty(int c, char **argv);
+char		**check_args(char *buff, int argc, char **argv);
+int		check_empty(int c, char **argv);
 t_stack   *fill_stack(char **arr);
 t_stack	*create_stack(void);
 int empty_stack(t_stack *stack);
@@ -79,4 +78,7 @@ t_node	*best_move(t_stack *b, t_stack *a);
 void	move_to_a(t_stack *a, t_stack *b);
 void	move_to_top_a(t_stack *a, t_node *n);
 void	move_to_top_b(t_stack *b, t_node *n);
+void	final_sort(t_stack *a);
+void	move_bottom(t_stack *a, t_stack *b, t_node *n_a, t_node *n_b);
+void	move_up(t_stack *a, t_stack *b, t_node *n_a, t_node *n_b);
 #endif

@@ -6,40 +6,11 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:28:49 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/27 16:30:33 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/28 22:04:37 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_stack   *fill_stack(char **arr)
-{
-	int	i;
-	t_stack	*stack;
-	
-	i = 0;
-	stack = create_stack();
-	while (arr[i + 1])
-		i++;
-	while (i >= 0)
-	{
-		push(stack, ft_atoi(arr[i]));
-		stack->top->index = i;
-		i--;
-	}
-	return (stack);
-}
-
-t_stack	*create_stack(void)
-{
-	t_stack	*stack;
-
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (0);
-	stack->top = NULL;
-	return stack;
-}
 
 void	push(t_stack *stack, int data)
 {
@@ -50,41 +21,24 @@ void	push(t_stack *stack, int data)
 	stack->top = node;
 }
 
-t_node	*ft_new_node(int content)
-{
-	t_node	*node;
-
-	node = malloc(sizeof(t_list));
-	if (!(node))
-		return (0);
-	node->data = content;
-	node->next = NULL;
-	return (node);
-}
-
-int empty_stack(t_stack *stack)
-{
-    return stack->top == NULL;
-}
-
 int	pop(t_stack *stack)
 {
-	int data;
-   t_node	*temp;
+	t_node	*temp;
+	int		data;
 
 	if (empty_stack(stack))
-		return -1;
+		return (-1);
 	data = stack->top->data;
-   temp = stack->top;
-    stack->top = stack->top->next;
-    free(temp);
-    return data;
+	temp = stack->top;
+	stack->top = stack->top->next;
+	free(temp);
+	return (data);
 }
 
 void	index_update(t_stack *s)
 {
 	t_node	*tmp;
-	int	i;
+	int		i;
 
 	if (empty_stack(s))
 		return ;
@@ -102,7 +56,7 @@ void	rr(t_stack *a, t_stack *b)
 {
 	t_node	*tmp;
 	t_node	*node;
-	int	tmp_data;
+	int		tmp_data;
 
 	if (empty_stack(a) || !a->top->next || empty_stack(b) || !b->top->next)
 		return ;
@@ -120,13 +74,13 @@ void	rr(t_stack *a, t_stack *b)
 		tmp = tmp->next;
 	tmp->next = node;
 	index_update(b);
-	write(1,"rr\n",3);
+	write(1, "rr\n", 3);
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
 	t_node	*tmp;
-	int	tmp_data;
+	int		tmp_data;
 
 	if (empty_stack(a) || !a->top->next || empty_stack(b) || !b->top->next)
 		return ;

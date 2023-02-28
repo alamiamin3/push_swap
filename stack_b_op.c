@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:08:53 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/25 12:30:14 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/28 21:32:32 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	sb(t_stack *stack)
 	int	tmp;
 
 	if (empty_stack(stack) || !stack->top->next)
-			return ;
+		return ;
 	else
 	{
-		tmp = stack->top->data;	
+		tmp = stack->top->data;
 		stack->top->data = stack->top->next->data;
 		stack->top->next->data = tmp;
 	}
@@ -32,7 +32,7 @@ void	rb(t_stack *stack)
 {
 	t_node	*tmp;
 	t_node	*node;
-	int	tmp_data;
+	int		tmp_data;
 
 	if (empty_stack(stack) || !stack->top->next)
 		return ;
@@ -49,7 +49,7 @@ void	rb(t_stack *stack)
 void	rrb(t_stack *stack)
 {
 	t_node	*tmp;
-	int	tmp_data;
+	int		tmp_data;
 
 	if (empty_stack(stack) || !stack->top->next)
 		return ;

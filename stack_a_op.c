@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:02:39 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/27 19:10:26 by aalami           ###   ########.fr       */
+/*   Updated: 2023/02/28 21:34:54 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ void	sa(t_stack *stack)
 	int	tmp;
 
 	if (empty_stack(stack) || !stack->top->next)
-			return ;
+		return ;
 	else
 	{
-		tmp = stack->top->data;	
+		tmp = stack->top->data;
 		stack->top->data = stack->top->next->data;
 		stack->top->next->data = tmp;
 	}
 	index_update(stack);
-	write(1,"sa\n",3);
+	write(1, "sa\n", 3);
 }
 
 void	ra(t_stack *stack)
 {
 	t_node	*tmp;
 	t_node	*node;
-	int	tmp_data;
+	int		tmp_data;
 
 	if (empty_stack(stack) || !stack->top->next)
 		return ;
@@ -43,13 +43,13 @@ void	ra(t_stack *stack)
 		tmp = tmp->next;
 	tmp->next = node;
 	index_update(stack);
-	write(1,"ra\n",3);
+	write(1, "ra\n", 3);
 }
 
 void	rra(t_stack *stack)
 {
 	t_node	*tmp;
-	int	tmp_data;
+	int		tmp_data;
 
 	if (empty_stack(stack) || !stack->top->next)
 		return ;
@@ -61,7 +61,7 @@ void	rra(t_stack *stack)
 	free(tmp->next);
 	push(stack, tmp_data);
 	index_update(stack);
-	write(1,"rra\n",4);
+	write(1, "rra\n", 4);
 }
 
 void	pa(t_stack *stack_b, t_stack *stack_a)
@@ -72,6 +72,5 @@ void	pa(t_stack *stack_b, t_stack *stack_a)
 	pop(stack_b);
 	index_update(stack_a);
 	index_update(stack_b);
-	write(1,"pa\n",3);
+	write(1, "pa\n", 3);
 }
-// 152 158 255  560 654 794 836  
