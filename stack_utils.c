@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:52:50 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/28 21:59:20 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/04 18:42:19 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_node	*ft_new_node(int content)
 {
 	t_node	*node;
 
-	node = malloc(sizeof(t_list));
+	node = malloc(sizeof(t_node));
 	if (!(node))
 		return (0);
 	node->data = content;
@@ -59,4 +59,19 @@ int	empty_stack(t_stack *stack)
 		return (1);
 	else
 		return (0);
+}
+
+void	free_stack(t_stack *s)
+{
+	t_node	*tmp;
+
+	if (empty_stack(s))
+		return;
+	tmp = s->top;
+	while (tmp)
+	{
+		free(tmp);
+		tmp = tmp->next;
+	}
+	free(s);
 }

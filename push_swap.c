@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:23:35 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/25 12:32:48 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/05 16:02:12 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ int	main(int argc, char **argv)
 		
 		while (args)
 		{
-			// free (buff);
-			// free (buff2);
+			if (i == 1)
+				free(buff);
 			buff = ft_strjoin(buff2, " ");
+			free (buff2);
 			buff2 = ft_strjoin(buff, argv[i]);
 			i++;
 			args--;
+			free (buff); 
 		}
 		arr = check_args(buff2, argc, argv);
 		if (arr && is_sorted(arr) == 0)
@@ -69,14 +71,21 @@ int	main(int argc, char **argv)
 			stack_a = fill_stack(arr);
 			stack_b = create_stack();
 			ft_sort(get_args_num(arr), stack_a, stack_b);
+			free_space(arr);
+			free_stack(stack_a);
+			free_stack(stack_b);
+			exit(EXIT_SUCCESS);
 		}
 		else
 		{
 			if (is_sorted(arr) == 1)
+			{
+				free_space(arr);
 				exit (0);
+			}
 			write(1, "ERROR\n", 6);
+			exit(EXIT_FAILURE);
 		}
-		free (buff);
 		free (buff2);
 	}
 	else

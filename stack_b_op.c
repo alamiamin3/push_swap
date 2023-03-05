@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:08:53 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/28 21:32:32 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/04 17:32:36 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,19 @@ void	rb(t_stack *stack)
 void	rrb(t_stack *stack)
 {
 	t_node	*tmp;
-	int		tmp_data;
+	t_node	*tmp2;
 
 	if (empty_stack(stack) || !stack->top->next)
 		return ;
 	tmp = stack->top;
-	while (tmp->next->next)
+	while (tmp->next)
+	{
+		tmp2 = tmp;
 		tmp = tmp->next;
-	tmp_data = tmp->next->data;
-	tmp->next = NULL;
-	free(tmp->next);
-	push(stack, tmp_data);
+	}
+	tmp->next = stack->top;
+	stack->top = tmp;
+	tmp2->next = NULL;
 	index_update(stack);
 	write(1, "rrb\n", 4);
 }

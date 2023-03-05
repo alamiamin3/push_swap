@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:04:55 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/20 20:55:52 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/05 14:28:41 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	free_space(char **arr)
 		free(arr[i]);
 		i++;
 	}
-	free(arr[i]);
 	free (arr);
 	return (0);
 }

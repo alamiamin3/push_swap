@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:28:49 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/28 22:04:37 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/04 17:35:43 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,25 +80,29 @@ void	rr(t_stack *a, t_stack *b)
 void	rrr(t_stack *a, t_stack *b)
 {
 	t_node	*tmp;
-	int		tmp_data;
-
+	t_node	*tmp2;
 	if (empty_stack(a) || !a->top->next || empty_stack(b) || !b->top->next)
 		return ;
 	tmp = a->top;
-	while (tmp->next->next)
+	while (tmp->next)
+	{
+		tmp2 = tmp;
 		tmp = tmp->next;
-	tmp_data = tmp->next->data;
-	tmp->next = NULL;
-	free(tmp->next);
-	push(a, tmp_data);
-	index_update(a);
-		tmp = b->top;
-	while (tmp->next->next)
+	}
+	tmp->next = a->top;
+	a->top = tmp;
+	tmp2->next = NULL;
+	index_update(b);
+	tmp = b->top;
+	while (tmp->next)
+	{
+		tmp2 = tmp;
 		tmp = tmp->next;
-	tmp_data = tmp->next->data;
-	tmp->next = NULL;
-	free(tmp->next);
-	push(b, tmp_data);
+	}
+	tmp->next = b->top;
+	b->top = tmp;
+	tmp2->next = NULL;
 	index_update(b);
 	write(1, "rrr\n", 4);
 }
+

@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:23:01 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/28 22:13:07 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/04 16:34:41 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	*get_lis(t_stack *a, int n)
 		lis_size --;
 		max_index = get_lis_index(lis, lis_size, max_index - 1);
 	}
+	free (lis);
 	return (sub);
 }
 

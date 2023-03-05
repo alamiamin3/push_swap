@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:01:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/28 22:21:33 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/04 16:24:34 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	move_to_top_b(t_stack *b, t_node *n);
 void	final_sort(t_stack *a);
 void	move_bottom(t_stack *a, t_stack *b, t_node *n_a, t_node *n_b);
 void	move_up(t_stack *a, t_stack *b, t_node *n_a, t_node *n_b);
+void	free_stack(t_stack *s);
 #endif
