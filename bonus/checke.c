@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checke.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 15:23:35 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 20:25:39 by aalami           ###   ########.fr       */
+/*   Created: 2023/03/06 21:55:35 by aalami            #+#    #+#             */
+/*   Updated: 2023/03/06 23:48:04 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	leaks(void)
-{
-	system("leaks push_swap");
-}
+#include "push_swap_bonus.h"
 
 int	check_empty(int c, char **argv)
 {
@@ -58,39 +53,55 @@ char	*get_args(int argc, char **argv)
 	return (buff2);
 }
 
-void	push_swap(char **arr)
+void	checker(char **arr)
 {
-	t_stack	*a;
-	t_stack	*b;
+	char	*line;
+	t_stack *a;
+	t_stack *b;
 
+	line = get_next_line(0);
 	a = fill_stack(arr);
 	b = create_stack();
-	if (a && b)
+	while (line)
 	{
-		ft_sort(get_args_num(arr), a, b);
-		free_stack(a);
-		free_stack(b);
+		if (ft_strncmp(line,"sa",2) == 0)
+			sa(a);
+		else if ((ft_strncmp(line,"ra",2) == 0))
+			ra(a);
+		else if ((ft_strncmp(line,"rra",3) == 0))
+			rra(a);
+		else if ((ft_strncmp(line,"pb",2) == 0))
+			pb(a,b);
+		else if ((ft_strncmp(line,"sb",2) == 0))
+			sb(b);
+		else if ((ft_strncmp(line,"rb",2) == 0))
+			rb(b);
+		else if ((ft_strncmp(line,"rrb",3) == 0))
+			rrb(b);
+		else if ((ft_strncmp(line,"pa",2) == 0))
+			pa(b, a);
+		else if ((ft_strncmp(line,"rr",2) == 0))
+			rr(a, b);
+		else if ((ft_strncmp(line,"rrr",3) == 0))
+			rrr(a, b);
 	}
-	free_space(arr);
-	exit(EXIT_SUCCESS);
+	
 }
-
 int	main(int argc, char **argv)
 {
 	char	**arr;
 	char	*buff;
+	char	*line;
 
 	if (argc > 1)
 	{
 		buff = get_args(argc, argv);
 		arr = check_args(buff, argc, argv);
 		free(buff);
-		if (arr && is_sorted(arr) == 0)
+		if (arr)
 			push_swap(arr);
 		else
 		{
-			if (is_sorted(arr) == 1)
-				exit(free_space(arr));
 			write(1, "ERROR\n", 6);
 			exit(EXIT_FAILURE);
 		}

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 17:04:55 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 20:25:50 by aalami           ###   ########.fr       */
+/*   Created: 2023/03/06 23:18:37 by aalami            #+#    #+#             */
+/*   Updated: 2023/03/06 23:19:14 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	check_nbr(char *str)
 {

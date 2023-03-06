@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 20:27:44 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/05 15:59:51 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/06 19:05:53 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_sort(int args, t_stack *a, t_stack *b)
 	{
 		lis = get_lis(a, args);
 		sub = find_lenght(a, args);
+		if (!lis || !sub)
+			return ;
 		lis_size = get_lis_max(sub, args);
 		sort_large_numbers(a, b, lis, lis_size);
 		free (lis);

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_a_op.c                                       :+:      :+:    :+:   */
+/*   stack_b_op.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 19:02:39 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 23:00:25 by aalami           ###   ########.fr       */
+/*   Created: 2023/03/06 23:32:42 by aalami            #+#    #+#             */
+/*   Updated: 2023/03/06 23:36:29 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	sa(t_stack *stack)
+void	sb(t_stack *stack)
 {
 	int	tmp;
 
@@ -25,10 +25,9 @@ void	sa(t_stack *stack)
 		stack->top->next->data = tmp;
 	}
 	index_update(stack);
-	write(1, "sa\n", 3);
 }
 
-void	ra(t_stack *stack)
+void	rb(t_stack *stack)
 {
 	t_node	*tmp;
 	t_node	*node;
@@ -43,10 +42,9 @@ void	ra(t_stack *stack)
 		tmp = tmp->next;
 	tmp->next = node;
 	index_update(stack);
-	write(1, "ra\n", 3);
 }
 
-void	rra(t_stack *stack)
+void	rrb(t_stack *stack)
 {
 	t_node	*tmp;
 	t_node	*tmp2;
@@ -63,16 +61,14 @@ void	rra(t_stack *stack)
 	stack->top = tmp;
 	tmp2->next = NULL;
 	index_update(stack);
-	write(1, "rra\n", 4);
 }
 
-void	pa(t_stack *stack_b, t_stack *stack_a)
+void	pb(t_stack *stack_a, t_stack *stack_b)
 {
-	if (empty_stack(stack_b))
+	if (empty_stack(stack_a))
 		return ;
-	push(stack_a, stack_b->top->data);
-	pop(stack_b);
-	index_update(stack_a);
+	push(stack_b, stack_a->top->data);
+	pop(stack_a);
 	index_update(stack_b);
-	write(1, "pa\n", 3);
+	index_update(stack_a);
 }

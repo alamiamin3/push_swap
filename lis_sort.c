@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:23:01 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/04 16:34:41 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/06 20:38:43 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@ int	*find_lenght(t_stack *a, int n)
 
 	tmp = a->top->next;
 	lis = init_lis(n);
+	if (!lis)
+		return (0);
 	j = 1;
 	while (j < n)
 	{
 		prev = a->top;
-		i = 0;
-		while (i < j)
+		i = -1;
+		while (++i < j)
 		{
 			if (prev->data < tmp->data && lis[j] <= lis[i])
 				lis[j] = lis[i] + 1;
 			prev = prev->next;
-			i++;
 		}
 		tmp = tmp->next;
 		j++;
@@ -51,15 +52,17 @@ int	*get_lis(t_stack *a, int n)
 	lis = find_lenght(a, n);
 	lis_size = get_lis_max(lis, n);
 	sub = (int *)malloc(sizeof(int) * lis_size);
+	if (!sub || !lis)
+		return (0);
 	max_index = get_lis_max_index(lis, n, lis_size);
 	while (lis_size >= 1)
 	{
 		tmp = get_node_by_index(a, get_lis_index(lis, lis_size, max_index));
 		sub[lis_size - 1] = tmp->data;
-		lis_size --;
+		lis_size--;
 		max_index = get_lis_index(lis, lis_size, max_index - 1);
 	}
-	free (lis);
+	free(lis);
 	return (sub);
 }
 
@@ -75,7 +78,7 @@ int	*init_lis(int n)
 	while (size < n)
 	{
 		lis[size] = 1;
-		size ++;
+		size++;
 	}
 	return (lis);
 }

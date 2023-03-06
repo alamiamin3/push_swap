@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   stack_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 14:47:35 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 20:26:54 by aalami           ###   ########.fr       */
+/*   Created: 2023/03/06 20:32:15 by aalami            #+#    #+#             */
+/*   Updated: 2023/03/06 20:37:59 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-long long	ft_atoi(const char *str)
+void	rrr_util(t_stack *s)
 {
-	long long	ret;
-	int			sign;
-	int			i;
+	t_node	*tmp;
+	t_node	*tmp2;
 
-	i = 0;
-	ret = 0;
-	sign = 1;
-	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	tmp = s->top;
+	while (tmp->next)
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		tmp2 = tmp;
+		tmp = tmp->next;
 	}
-	while (ft_isdigit(str[i]))
-	{
-		ret = ((ret * 10) + str[i] - 48);
-		i++;
-	}
-	ret = ret * sign;
-	return (ret);
+	tmp->next = s->top;
+	s->top = tmp;
+	tmp2->next = NULL;
 }

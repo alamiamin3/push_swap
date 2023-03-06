@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 19:02:39 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 23:00:25 by aalami           ###   ########.fr       */
+/*   Created: 2023/03/06 23:29:45 by aalami            #+#    #+#             */
+/*   Updated: 2023/03/06 23:36:49 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	sa(t_stack *stack)
 {
@@ -25,7 +25,6 @@ void	sa(t_stack *stack)
 		stack->top->next->data = tmp;
 	}
 	index_update(stack);
-	write(1, "sa\n", 3);
 }
 
 void	ra(t_stack *stack)
@@ -43,7 +42,6 @@ void	ra(t_stack *stack)
 		tmp = tmp->next;
 	tmp->next = node;
 	index_update(stack);
-	write(1, "ra\n", 3);
 }
 
 void	rra(t_stack *stack)
@@ -63,7 +61,6 @@ void	rra(t_stack *stack)
 	stack->top = tmp;
 	tmp2->next = NULL;
 	index_update(stack);
-	write(1, "rra\n", 4);
 }
 
 void	pa(t_stack *stack_b, t_stack *stack_a)
@@ -74,5 +71,4 @@ void	pa(t_stack *stack_b, t_stack *stack_a)
 	pop(stack_b);
 	index_update(stack_a);
 	index_update(stack_b);
-	write(1, "pa\n", 3);
 }

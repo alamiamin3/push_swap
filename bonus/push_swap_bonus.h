@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 16:01:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 20:35:25 by aalami           ###   ########.fr       */
+/*   Created: 2023/03/06 23:08:27 by aalami            #+#    #+#             */
+/*   Updated: 2023/03/06 23:09:55 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
-# include "./lib/Libft/libft.h"
+# include "../lib/Libft/libft.h"
+# include "gnl/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 17:28:49 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 20:36:16 by aalami           ###   ########.fr       */
+/*   Created: 2023/03/06 23:37:20 by aalami            #+#    #+#             */
+/*   Updated: 2023/03/06 23:40:37 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	push(t_stack *stack, int data)
 {
@@ -74,7 +74,6 @@ void	rr(t_stack *a, t_stack *b)
 		tmp = tmp->next;
 	tmp->next = node;
 	index_update(b);
-	write(1, "rr\n", 3);
 }
 
 void	rrr(t_stack *a, t_stack *b)
@@ -85,5 +84,4 @@ void	rrr(t_stack *a, t_stack *b)
 	index_update(a);
 	rrr_util(b);
 	index_update(b);
-	write(1, "rrr\n", 4);
 }

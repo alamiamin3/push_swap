@@ -12,7 +12,8 @@ SRC = 	stack.c \
 		sort_utils.c \
 		sort_utils_2.c \
 		sort_utils_3.c \
-		stack_utils.c
+		stack_utils.c \
+		stack_utils_2.c 
 OBJ = $(SRC:.c=.o)
 LIB_DIR = lib/Libft
 LIBFT = libft.a
