@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:53:05 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/28 20:20:22 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/07 21:29:56 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	sort_numbers(t_stack *a, t_stack *b)
 	while (size > 3)
 	{
 		if (index < (size / 2) && index != 0)
-			ra (a);
+			ra(a);
 		else if (index == 0)
 		{
-			pb (a, b);
+			pb(a, b);
 			size = stack_size(a);
 		}
 		else
@@ -58,8 +58,10 @@ void	small_sort(t_stack *a)
 			sa(a);
 		return ;
 	}
-	else
+	else if (!check_if_sorted(a))
 		sa(a);
+	else
+		return ;
 }
 
 void	sort_large_numbers(t_stack *a, t_stack *b, int *lis, int max)
@@ -85,4 +87,20 @@ void	sort_large_numbers(t_stack *a, t_stack *b, int *lis, int max)
 	while (!empty_stack(b))
 		move_to_a(a, b);
 	final_sort(a);
+}
+
+int	check_if_sorted(t_stack *s)
+{
+	t_node *tmp;
+
+	if (empty_stack(s))
+		return (0);
+	tmp = s->top;
+	while (tmp->next)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

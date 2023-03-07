@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 23:08:27 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 23:09:55 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/07 21:47:13 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define PUSH_SWAP_BONUS_H
 
 # include "../lib/Libft/libft.h"
-# include "gnl/get_next_line.h"
 # include <stdio.h>
+# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -51,40 +51,9 @@ void				pb(t_stack *stack_a, t_stack *stack_b);
 void				sb(t_stack *stack);
 void				rb(t_stack *stack);
 void				rrb(t_stack *stack);
-int					get_args_num(char **arr);
-int					is_sorted(char **arr);
-void				ft_sort(int args, t_stack *a, t_stack *b);
-int					get_max(t_stack *s);
-int					get_index(t_stack *s, int data);
-void				small_sort(t_stack *a);
-int					stack_size(t_stack *stack);
-void				sort_numbers(t_stack *a, t_stack *b);
-int					get_min(t_stack *s);
-int					*find_lenght(t_stack *a, int n);
-int					*init_lis(int n);
-int					*get_lis(t_stack *a, int n);
-int					get_lis_max_index(int *lis, int n, int num);
-int					get_lis_max(int *lis, int n);
-t_node				*get_node_by_index(t_stack *a, int index);
-int					get_lis_index(int *lis, int num, int max_index);
 void				index_update(t_stack *s);
-void				sort_large_numbers(t_stack *a, t_stack *b, int *lis,
-						int max);
-t_node				*get_higher_num(t_stack *a, int n);
-t_node				*get_smaller(t_stack *s);
-int					get_moves_to_top(t_stack *s, t_node *n);
 void				rr(t_stack *a, t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
-int					get_moves_to_a(t_stack *a, t_stack *b, t_node *n_b,
-						t_node *n_a);
-t_node				*best_move(t_stack *b, t_stack *a);
-void				move_to_a(t_stack *a, t_stack *b);
-void				move_to_top_a(t_stack *a, t_node *n);
-void				move_to_top_b(t_stack *b, t_node *n);
-void				final_sort(t_stack *a);
-void				move_bottom(t_stack *a, t_stack *b, t_node *n_a,
-						t_node *n_b);
-void				move_up(t_stack *a, t_stack *b, t_node *n_a, t_node *n_b);
 void				free_stack(t_stack *s);
 void				rrr_util(t_stack *s);
 #endif

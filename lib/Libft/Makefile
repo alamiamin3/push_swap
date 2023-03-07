@@ -6,7 +6,7 @@
 #    By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 14:44:52 by aalami            #+#    #+#              #
-#    Updated: 2023/01/08 15:05:55 by aalami           ###   ########.fr        #
+#    Updated: 2023/03/07 16:26:20 by aalami           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SOURCES = \
 	ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 	ft_putnbr_fd.c ft_memcmp.c ft_strlcat.c ft_striteri.c \
 	convert_hex.c ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c \
-	ft_strchr_p.c
+	ft_strchr_p.c get_next_line.c
 
 BONUS = ft_lstnew.c ft_lstadd_front.c \
 	ft_lstsize.c ft_lstlast.c ft_lstadd_back.c 

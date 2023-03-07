@@ -6,17 +6,17 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:17:45 by aalami            #+#    #+#             */
-/*   Updated: 2023/02/28 22:20:13 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:17:35 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
-// # include "ft_printf.h"
+# define BUFFER_SIZE 1
 
 typedef struct s_list
 {
@@ -78,5 +78,8 @@ int					ft_putchar(char c);
 int					covert_hex(unsigned long num, int alpha);
 int					ft_strchr_p(char *s, char c);
 int					print_hexa(unsigned long *s, int i, int form);
-
+char				*get_next_line(int fd);
+char				*stash_resize(char *saved);
+char				*get_my_line(char *saved);
+char				*ft_read(int fd, char *saved);
 #endif
