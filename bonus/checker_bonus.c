@@ -6,15 +6,11 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 21:55:35 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/07 22:02:16 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:47:41 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
-void	leaks(void)
-{
-	system("leaks checker");
-}
 
 int	check_empty(int c, char **argv)
 {
@@ -56,6 +52,7 @@ char	*get_args(int argc, char **argv)
 	}
 	return (buff2);
 }
+
 int	check_if_sorted(t_stack *a, t_stack *b)
 {
 	t_node	*tmp;
@@ -70,64 +67,30 @@ int	check_if_sorted(t_stack *a, t_stack *b)
 		tmp = tmp->next;
 	}
 	return (1);
-	
 }
+
 void	checker(char **arr)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 	char	*line;
 
 	line = get_next_line(0);
 	a = fill_stack(arr);
 	b = create_stack();
-	while (line)
-	{
-		if ((strcmp(line,"sa\n") == 0))
-			sa(a);
-		else if ((strcmp(line,"ra\n") == 0))
-			ra(a);
-		else if ((strcmp(line,"rra\n") == 0))
-			rra(a);
-		else if ((strcmp(line,"pb\n") == 0))
-			pb(a,b);
-		else if ((strcmp(line,"sb\n") == 0))
-			sb(b);
-		else if ((strcmp(line,"rb\n") == 0))
-			rb(b);
-		else if ((strcmp(line,"rrb\n") == 0))
-			rrb(b);
-		else if ((strcmp(line,"pa\n") == 0))
-			pa(b, a);
-		else if ((strcmp(line,"rr\n") == 0))
-			rr(a, b);
-		else if ((strcmp(line,"rrr\n") == 0))
-			rrr(a, b);
-		else
-		{
-			write(1, "ERROR\n", 6);
-			free_space(arr);
-			free_stack(a);
-			free_stack(b);
-			exit(EXIT_FAILURE);
-		}
-		free(line);
-		line = get_next_line(0);
-	}
+	execute_actions(line, arr, a, b);
 	if (check_if_sorted(a, b))
-	write(1, "OK\n", 3);
-		
+		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	free_space(arr);
-	free_stack(a);
-	free_stack(b);
+	exit(free_all(arr, a, b));
 }
+
 int	main(int argc, char **argv)
 {
 	char	**arr;
 	char	*buff;
-	// atexit(leaks);
+
 	if (argc > 1)
 	{
 		buff = get_args(argc, argv);

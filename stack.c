@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:28:49 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 20:36:16 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/09 17:34:02 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	push(t_stack *stack, int data)
 	t_node	*node;
 
 	node = ft_new_node(data);
+	if (!node)
+		return ;
 	node->next = stack->top;
 	stack->top = node;
 }

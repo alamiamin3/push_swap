@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 23:08:27 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/07 21:47:13 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/09 19:26:17 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "../lib/Libft/libft.h"
 # include <stdio.h>
-# include <string.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 
 typedef struct s_node
@@ -56,4 +56,12 @@ void				rr(t_stack *a, t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
 void				free_stack(t_stack *s);
 void				rrr_util(t_stack *s);
+void				handle_error(char **arr, t_stack *a, t_stack *b);
+int					handle_a(char *line, t_stack *a, t_stack *b);
+int					handle_b(char *line, t_stack *a, t_stack *b);
+int					handle_mutual(char *line, t_stack *a, t_stack *b);
+void				execute_actions(char *line, char **arr, t_stack *a,
+						t_stack *b);
+int					free_all(char **arr, t_stack *a, t_stack *b);
+int					ft_strcmp(char *s1, char *s2);
 #endif

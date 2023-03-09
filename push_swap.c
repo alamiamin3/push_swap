@@ -6,16 +6,11 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:23:35 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/06 20:25:39 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/09 17:16:06 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	leaks(void)
-{
-	system("leaks push_swap");
-}
 
 int	check_empty(int c, char **argv)
 {

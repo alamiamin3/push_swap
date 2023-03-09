@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:53:05 by aalami            #+#    #+#             */
-/*   Updated: 2023/03/07 21:29:56 by aalami           ###   ########.fr       */
+/*   Updated: 2023/03/09 19:26:50 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	sort_large_numbers(t_stack *a, t_stack *b, int *lis, int max)
 
 int	check_if_sorted(t_stack *s)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (empty_stack(s))
 		return (0);

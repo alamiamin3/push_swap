@@ -17,14 +17,16 @@ SRC = 	stack.c \
 		stack_utils_2.c 
 SRC_BNS = ./bonus/args_checker_bonus.c \
 			./bonus/checker_bonus.c \
+			./bonus/checker_utils_bonus.c \
+			./bonus/checker_utils2_bonus.c \
 			./bonus/stack_a_op_bonus.c \
 			./bonus/stack_b_op_bonus.c \
 			./bonus/stack_utils_2_bonus.c \
 			./bonus/stack_utils_bonus.c \
 			./bonus/stack_bonus.c
 
-OBJ = $(SRC:%.c=%.o)
-OBJ_BNS = $(SRC_BNS:%.c=%.o)
+OBJ = $(SRC:.c=.o)
+OBJ_BNS = $(SRC_BNS:.c=.o)
 LIB_DIR = lib/Libft
 LIBFT = libft.a
 
